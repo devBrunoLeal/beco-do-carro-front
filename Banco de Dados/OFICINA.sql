@@ -63,10 +63,20 @@ CREATE TABLE Procedimento (
 );
 
 CREATE TABLE Estoque (
-	id BIGINT NOT NULL PRIMARY KEY IDENTITY,
+	id INT,
 	descricao VARCHAR(50) NOT NULL,
-	fornecedor VARCHAR(50) NOT NULL
+	fornecedor VARCHAR(50) NOT NULL,
+	quantidade INT,
+	preco INT
 );
+
+INSERT INTO Estoque VALUES('01','Óleo','Atual Auto Peças',120,22)
+INSERT INTO Estoque VALUES('02','Filtro de ar','Atual Auto Peças',110,30)
+INSERT INTO Estoque VALUES('03','Pneu','Atual Auto Peças',140,180)
+INSERT INTO Estoque VALUES('04','Pastilhas de freio','Atual Auto Peças',180,300)
+INSERT INTO Estoque VALUES('05','Bateria','Atual Auto Peças',150,250)
+INSERT INTO Estoque VALUES('06','Velas de ignição','Atual Auto Peças',150,20)
+INSERT INTO Estoque VALUES('07','Bobina','Atual Auto Peças',170,80)
 
 INSERT INTO Cliente VALUES('Eduarda','14927357015','941199050')
 INSERT INTO Cliente VALUES('Bruno','36107233008','996216979')
@@ -146,4 +156,4 @@ SELECT * FROM   Veiculo
 SELECT * FROM	Endereco_Funcionario
 SELECT * FROM	Servico
 SELECT * FROM	Procedimento
-SELECT * FROM	Produto
+SELECT * FROM	Estoque
