@@ -14,6 +14,8 @@ CREATE TABLE Endereco_Cliente (
 	CONSTRAINT PK_Cep_Cliente PRIMARY KEY (cep)
 );
 
+create UNIQUE index ix_cep on Endereco_Cliente(cep)  
+
 CREATE TABLE Funcionario (
 	nome CHAR (30) NOT NULL,
 	CPF CHAR (11) NOT NULL,
@@ -31,6 +33,8 @@ CREATE TABLE Endereco_Funcionario (
 	CONSTRAINT FK_Endereco_Funcionario FOREIGN KEY(cod_funcionario) REFERENCES Funcionario (cod_funcionario),
 	CONSTRAINT PK_Cep_Funcionario PRIMARY KEY (cep)
 );
+
+create UNIQUE index ix_cep on Endereco_Funcionario(cep) 
 
 CREATE TABLE Veiculo (
 	renavam CHAR (20),
@@ -55,12 +59,20 @@ CREATE TABLE Servico (
 	CONSTRAINT FK_Renavam_Veiculo FOREIGN KEY(renavam) REFERENCES Veiculo (renavam)
 );
 
+create UNIQUE index ix_cod_funcionario on Servico(cod_funcionario) 
+create UNIQUE index ix_cpf_cliente on Servico(CPF) 
+create UNIQUE index ix_renavam on Servico(renavam) 
+
+
 CREATE TABLE Procedimento (
+	ind_procedimento CHAR (2),
 	OS CHAR (8) NOT NULL,
 	descricao CHAR (100),
 	codigo_tipo_servico CHAR (2),
 	CONSTRAINT FK_OS_Servico FOREIGN KEY(OS) REFERENCES Servico (OS)
 );
+
+create UNIQUE index ix_procedimento on Procedimento(ind_procedimento) 
 
 CREATE TABLE Estoque (
 	id INT,
@@ -137,17 +149,17 @@ INSERT INTO Servico VALUES ('9168449715','86149107035','63187880059','000005',58
 INSERT INTO Servico VALUES ('3376478735','54750034088','47218870120','000006',2200,'10/10/2020','11/12/2020')
 
 
-INSERT INTO Procedimento VALUES ('000001','Troca de óleo','01')
-INSERT INTO Procedimento VALUES ('000001','Alinhamento','02')
-INSERT INTO Procedimento VALUES ('000001','Troca de filtros','06')
-INSERT INTO Procedimento VALUES ('000002','Troca de óleo','01')
-INSERT INTO Procedimento VALUES ('000003','Alinhamento','02')
-INSERT INTO Procedimento VALUES ('000003','Troca de filtros','06')
-INSERT INTO Procedimento VALUES ('000004','Troca de óleo','01')
-INSERT INTO Procedimento VALUES ('000004','Revisão Completa','04')
-INSERT INTO Procedimento VALUES ('000005','Manutenção','05')
-INSERT INTO Procedimento VALUES ('000006','Troca de óleo','01')
-INSERT INTO Procedimento VALUES ('000006','Revisão Completa','04')
+INSERT INTO Procedimento VALUES ('1','000001','Troca de óleo','01')
+INSERT INTO Procedimento VALUES ('2','000001','Alinhamento','02')
+INSERT INTO Procedimento VALUES ('3','000001','Troca de filtros','06')
+INSERT INTO Procedimento VALUES ('4','000002','Troca de óleo','01')
+INSERT INTO Procedimento VALUES ('5','000003','Alinhamento','02')
+INSERT INTO Procedimento VALUES ('6','000003','Troca de filtros','06')
+INSERT INTO Procedimento VALUES ('7','000004','Troca de óleo','01')
+INSERT INTO Procedimento VALUES ('8','000004','Revisão Completa','04')
+INSERT INTO Procedimento VALUES ('9','000005','Manutenção','05')
+INSERT INTO Procedimento VALUES ('0','000006','Troca de óleo','01')
+INSERT INTO Procedimento VALUES ('10','000006','Revisão Completa','04')
 
 SELECT * FROM   Cliente
 SELECT * FROM   Endereco_Cliente
