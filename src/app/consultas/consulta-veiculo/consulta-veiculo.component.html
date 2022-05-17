@@ -1,0 +1,20 @@
+<table *ngIf="veiculos" class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ano</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Placa</th>
+      <th scope="col">Renavam</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let veiculo of veiculos">
+      <th scope="row">{{veiculo.ano}}</th>
+      <td>{{veiculo.marca}}</td>
+      <td>{{veiculo.modelo}}</td>
+      <td>{{veiculo.placa}}</td>
+      <td>{{veiculo.renavam}}</td>
+    </tr>
+  </tbody>
+</table>

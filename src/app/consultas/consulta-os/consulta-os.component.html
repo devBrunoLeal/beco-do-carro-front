@@ -1,0 +1,28 @@
+<table *ngIf="os" class="table">
+  <thead>
+    <tr>
+      <th scope="col">OS</th>
+      <th scope="col">Funcionário responsável</th>
+      <th scope="col">Código Funcionario</th>
+      <th scope="col">CPF Cliente</th>
+      <th scope="col">Placa do Veículo</th>
+      <th scope="col">Modelo do Veículo</th>
+      <th scope="col">Data ÍNICIO</th>
+      <th scope="col">Data FIM</th>
+      <th scope="col">Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let servico of os">
+      <th scope="row">{{servico.OS}}</th>
+      <td>{{servico.nome}}</td>
+      <td>{{servico.cod_funcionario}}</td>
+      <td>{{servico.CPF}}</td>
+      <td>{{servico.placa}}</td>
+      <td>{{servico.modelo}}</td>
+      <td>{{servico.data_inicio | date}}</td>
+      <td>{{servico.data_fim | date}}</td>
+      <td>{{servico.preco}}</td>
+    </tr>
+  </tbody>
+</table>

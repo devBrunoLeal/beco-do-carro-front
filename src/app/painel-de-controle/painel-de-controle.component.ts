@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { CadastrosService } from "../services/cadastros.service";
-import { ConsultasService } from "../services/consultas.service";
+import { ApiService } from "../services/api.service";
 
 @Component({
   selector: "app-painel-de-controle",
@@ -9,17 +8,14 @@ import { ConsultasService } from "../services/consultas.service";
   styleUrls: ["./painel-de-controle.component.scss"],
 })
 export class PainelDeControleComponent implements OnInit {
-  cadastros: { id: number; name: string; }[];
-  consultas: { id: number; name: string; }[];
+  menu: { id: number; api: string; name: string; }[];
   constructor(
     private router: Router,
-    private consultasService: ConsultasService,
-    private cadastrosService: CadastrosService
+    private apiService: ApiService,
   ) {}
 
   ngOnInit() {
-  this.cadastros = this.cadastrosService.getCadastros();
-  this.consultas = this.consultasService.getConsultas();
+  this.menu = this.apiService.getMenu();
 }
 
   redirectConsulta(item) {

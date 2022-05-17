@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'beco-do-carro';
+
+
+showBtn(){
+  return !document.location.href.includes('login')
+}
 }

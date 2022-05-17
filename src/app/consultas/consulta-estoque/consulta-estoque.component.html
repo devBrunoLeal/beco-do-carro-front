@@ -1,0 +1,20 @@
+<table *ngIf="estoque" class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Fornecedor</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Quantidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let est of estoque">
+      <th scope="row">{{est.id}}</th>
+      <td>{{est.descricao}}</td>
+      <td>{{est.fornecedor}}</td>
+      <td>{{est.preco}}</td>
+      <td>{{est.quantidade}}</td>
+    </tr>
+  </tbody>
+</table>

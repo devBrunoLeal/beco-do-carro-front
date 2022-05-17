@@ -1,11 +1,11 @@
 <div class="container mt-4">
   <mat-card class="mt-2">
     <mat-card-title>Consultar</mat-card-title>
-    <button *ngFor="let item of consultas" (click)="redirectConsulta(item.id)" class="item-btn" mat-raised-button color="primary">{{item.name}}</button>
+    <button *ngFor="let item of menu" (click)="redirectConsulta(item.id)" class="item-btn" mat-raised-button color="primary">{{item.name}}</button>
   </mat-card>
 
   <mat-card class="mt-4">
     <mat-card-title>Cadastrar</mat-card-title>
-    <button *ngFor="let item of cadastros" (click)="redirectCadastro(item.id)" class="item-btn" mat-raised-button color="primary">{{item.name}}</button>
+    <button *ngFor="let item of menu" (click)="redirectCadastro(item.id)" class="item-btn" mat-raised-button color="primary">{{item.name}}</button>
   </mat-card>
 </div>

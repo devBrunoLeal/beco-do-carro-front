@@ -2,36 +2,11 @@
   <h1 class="text-center mb-2 mt-2 "> Consulta de {{page.name}} </h1>
 
  <mat-card>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+<app-consulta-cliente *ngIf="clientes" [clientes]="clientes"></app-consulta-cliente>
+<app-consulta-estoque *ngIf="estoque" [estoque]="estoque"></app-consulta-estoque>
+<app-consulta-veiculo *ngIf="veiculos" [veiculos]="veiculos"></app-consulta-veiculo>
+<app-consulta-os *ngIf="os" [os]="os"></app-consulta-os>
+<app-consulta-funcionario *ngIf="funcionarios" [funcionarios]="funcionarios"></app-consulta-funcionario>
 </mat-card>
 
 
