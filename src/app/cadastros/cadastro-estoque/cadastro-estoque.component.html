@@ -1,20 +1,6 @@
-<form  [formGroup]="form" class="needs-validation">
-  <div class="form-row row">
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom01">ID</label>
-      <input formControlName="id" type="number" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom02">Descrição</label>
-      <input formControlName="descricao" type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom03">Fornecedor</label>
-      <input formControlName="fornecedor" type="text" class="form-control" id="validationCustom03" placeholder="Last name" value="Otto" required>
-    </div>
-    <button class="btn btn-primary" (click)="enviar()" type="submit">Enviar</button>
+<form  [formGroup]="form" (ngSubmit)="enviar()" class="needs-validation">
+  <div class="row">
+     <formly-form class="row" [form]="form" [fields]="fields" [model]="model"></formly-form>
+    <button  type="submit" class="btn btn-primary mt-3">Enviar</button>
   </div>
 </form>

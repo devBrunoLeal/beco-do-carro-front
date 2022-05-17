@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-cadastro-cliente',
@@ -12,7 +13,7 @@ export class CadastroClienteComponent implements OnInit {
 
 @Output() dados = new EventEmitter();
 
-  constructor( private fb: FormBuilder) { }
+  constructor( private fb: FormBuilder, private _service: NotificationsService) { }
 
   form = new FormGroup({});
   model = {};
@@ -57,7 +58,7 @@ export class CadastroClienteComponent implements OnInit {
     if(this.form.valid){
       this.dados.emit(this.form.value);
     }else{
-      alert('Formulário inválido')
+       this._service.error('Erro!', 'Formulário inválido',{timeOut: 3000})
     }
   }
 

@@ -30,8 +30,9 @@ import { CadastrosComponent } from "./cadastros/cadastros.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormlyModule } from "@ngx-formly/core";
 import { FormlyBootstrapModule } from "@ngx-formly/bootstrap";
-import { NgxMaskModule } from 'ngx-mask';
-
+import { NgxMaskModule } from "ngx-mask";
+import { SimpleNotificationsModule } from "angular2-notifications";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,10 +53,13 @@ import { NgxMaskModule } from 'ngx-mask';
   ],
   imports: [
     BrowserModule,
+      BrowserAnimationsModule,
     FormlyModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
-    CommonModule,FormlyBootstrapModule,
+    SimpleNotificationsModule.forRoot(),
+    CommonModule,
+    FormlyBootstrapModule,
     MatInputModule,
     NgxMaskModule.forRoot(),
     MatMenuModule,

@@ -1,28 +1,28 @@
-<form  [formGroup]="form" class="needs-validation">
-      <div class="form-row row">
-        <div class="col-md-4 mb-3">
-          <label for="validationCustom01">Nome</label>
-          <input formControlName="nome" type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="validationCustom02">CPF</label>
-          <input formControlName="CPF" type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="validationCustom03">Telefone</label>
-          <input formControlName="telefone" type="text" class="form-control" id="validationCustom03" placeholder="Last name" value="Otto" required>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="validationCustom03">Cod. Funcionario</label>
-          <input formControlName="cod_funcionario" type="text" class="form-control" id="validationCustom03" placeholder="Last name" value="Otto" required>
-        </div>
-               <div class="col-md-4 mb-3">
-          <label for="validationCustom03">É Gerente?</label>
-          <input formControlName="ind_gerente" type="text" class="form-control" id="validationCustom03" placeholder="Last name" value="Otto" required>
-        </div>
+<form [formGroup]="form" class="needs-validation">
+  <div class="form-row row">
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom01">Nome</label>
+      <input formControlName="nome" type="text" class="form-control" id="validationCustom01" value="Mark" required>
+      <div class="valid-feedback">
+        Looks good!
       </div>
-      <button class="btn btn-primary" (click)="enviar()" type="submit">Enviar</button>
-    </form>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom02">CPF</label>
+      <input formControlName="CPF" type="text" class="form-control" id="validationCustom02" value="Otto" required>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom03">Telefone</label>
+      <input formControlName="telefone" type="text" class="form-control" id="validationCustom03"  value="Otto" required>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom03">É Gerente?</label>
+
+      <select class="form-control" formControlName="ind_gerente"  id="validationCustom03" required name="cars" id="cars">
+        <option value="S">Sim</option>
+        <option value="N">Não</option>
+      </select>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="enviar()" type="submit">Enviar</button>
+</form>

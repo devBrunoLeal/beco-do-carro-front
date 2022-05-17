@@ -15,12 +15,6 @@ export class CadastrosComponent implements OnInit {
 
   constructor( private _service: NotificationsService,private fb: FormBuilder,private router: ActivatedRoute, private apiService: ApiService) { }
 
-  produtoForm = this.fb.group({
-    id: [null],
-    descricao: [null],
-    fornecedor: [null],
-  });
-
 
   ngOnInit() {
     this.router.params.subscribe(res => {
@@ -31,9 +25,13 @@ export class CadastrosComponent implements OnInit {
 
   enviar(body){
     this.apiService.post(this.page.api, body).subscribe(res => {
-      this._service.success('Sucesso!', 'Cadastrado com sucesso.')
-    },err => {
-      this._service.error('Erro!', 'Falha ao cadastrar')
+    },res => {
+      if(res.status == 200){
+       this._service.success('Sucesso!', 'Cadastrado com sucesso.',{timeOut: 3000})
+      }else{
+       this._service.error('Erro!', 'Falha ao cadastrar',{timeOut: 3000})
+      }
+
       })
   }
 }
